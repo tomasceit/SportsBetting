@@ -1,4 +1,4 @@
-// Funciones
+// Chequear que sea mayor de edad
 let userAge = undefined;
 const checkAge = () => {
     userAge = Number(prompt('Ingrese su edad:'));
