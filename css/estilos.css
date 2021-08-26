@@ -1,4 +1,4 @@
-body{
+/* body{
     margin:0;
     padding:0;
 }
@@ -31,8 +31,7 @@ body{
     grid-area: gamesOdds;
     margin-top: 100px;
 }
-
+*/
 #footer{
-    grid-area: footer;
-    margin-top: 50px;
-}
+    margin-top: 5rem;
+} 
