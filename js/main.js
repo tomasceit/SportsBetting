@@ -6,6 +6,14 @@ gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Barcelona", "Champions",
 gamesArray.push(new GamesOdds("Tenis", "Nadal", "Federer", "Wimbledon", 5.5, 3.2));
 gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Man Utd", "Champions", 1.1, 9.1));
 gamesArray.push(new GamesOdds("Basket", "Nets", "Lakers", "NBA", 2.2, 4.9));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
+gamesArray.push(new GamesOdds("Futbol", "Gimnasia LP", "Real Madrid", "Champions", 1.25, 5.25));
 // Creo arrays con partidos de distintos deportes
 const futbolGamesArray = gamesArray.filter(game => game.sport.toLowerCase() === "futbol");
 const tenisGamesArray = gamesArray.filter(game => game.sport.toLowerCase() === "tenis");
@@ -16,7 +24,7 @@ writeBasketGames(basketGamesArray);
 writeTenisGames(tenisGamesArray);
 
 
-let mayoriaEdad = checkAge();
+// let mayoriaEdad = checkAge();
 // if (mayoriaEdad) {
 //     alert(`El equipo 1 es: ${game1.team1} y paga ${game1.odds1}`);    
 //     alert(`El equipo 2 es: ${game1.team2} y paga ${game1.odds2}`);
@@ -44,5 +52,3 @@ let mayoriaEdad = checkAge();
 // } else {
 //     alert('Los menores de edad no tienen permitido apostar.');    
 // }
-
-

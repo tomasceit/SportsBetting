@@ -1,37 +1,15 @@
-/* body{
-    margin:0;
-    padding:0;
-}
-
-#container{
-    display: grid;
-    grid-template-columns: 20vw 55vw 25vw;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "navBar navBar navBar" "sports gamesOdds myBets" "sports footer myBets"
-}
-
-#navBar{
-    grid-area: navBar;
-}
-
-#sports{
-    grid-area: sports;
-    width: 20vw;
-    justify-content: center;
-}
-
-#myBets{
-    grid-area: myBets;
-    right: 0;
-    width: 25vw;
-    justify-content: center;
-}
-
-#gamesOdds{
-    grid-area: gamesOdds;
-    margin-top: 100px;
-}
-*/
 #footer{
     margin-top: 5rem;
-} 
+}
+
+.mt-6{
+    margin-top: 6rem !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
+.list-group-item:hover{
+    background-color: #f8f9fa;
+}
