@@ -5,6 +5,9 @@
 .mt-6{
     margin-top: 6rem !important;
 }
+.mr-7{
+    margin-right: 7rem !important;
+}
 
 a{
     text-decoration: none !important;
@@ -12,4 +15,22 @@ a{
 }
 .list-group-item:hover{
     background-color: #f8f9fa;
+}
+/* .bg-bk{
+    background-color: rgb(37, 36, 37);
+}
+.btn-color{
+    color: white;
+    background-color: rgb(44, 223, 138);
+} */
+@media only screen and (min-width: 992px)  {
+    #navbarNavDropdown{
+        display: flex;
+        justify-content: end;
+    }
+    .btn-dark.mr-3{
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 1rem;
+    }
 }
