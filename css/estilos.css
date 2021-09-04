@@ -1,4 +1,5 @@
-#footer{
+/* Declaraciones tipo Bootstrap */
+.mt-5r{
     margin-top: 5rem;
 }
 
@@ -6,23 +7,53 @@
     margin-top: 6rem !important;
 }
 .mr-7{
-    margin-right: 7rem !important;
+    margin-right: 6rem !important;
+}
+.btn-green{
+    background-color: #51e5a5;
+    color: #4a4e57;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
 }
 
+
+/* Declaraciones generales */
 a{
     text-decoration: none !important;
-    color: black !important;
+    color: black;
 }
-.list-group-item:hover{
-    background-color: #f8f9fa;
+body{
+    font-family: 'Mulish', sans-serif;
+    font-weight: 400;
 }
-/* .bg-bk{
-    background-color: rgb(37, 36, 37);
+.table th, .table td{
+    text-align: center;
 }
-.btn-color{
-    color: white;
-    background-color: rgb(44, 223, 138);
-} */
+/*Header*/
+header > nav{
+    background-color: rgb(82, 77, 215);
+    font-family: 'Mulish', sans-serif;
+    font-weight: 700;
+}
+a.navbar-brand{
+    color: white !important;
+    font-size: 1.9rem;
+    letter-spacing: .1rem;
+}
+a.navbar-brand > span{
+    color: #51e5a5 !important;
+}
+.nav-item.dropdown > a{
+    color: white !important;
+}
+.nav-item.dropdown > a:hover, .nav-item.dropdown > a:active{
+    color: #51e5a5 !important;
+}
+.dropdown-item{
+    color: #4a4e57;
+}
+
+/* Declaraciones responsive */
 @media only screen and (min-width: 992px)  {
     #navbarNavDropdown{
         display: flex;

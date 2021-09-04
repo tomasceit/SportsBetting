@@ -16,9 +16,9 @@ const writeFutbolGames = (futbolGamesArray) => {
                                         <span>${game.team2}</span>
                                     </div>
                                 </td>
-                                <td><button class="btn btn-dark btn-odds" type="button" onclick="placeBetHome(event)" style="width: 70px">${game.odds1}</button></td>
-                                <td><button class="btn btn-dark btn-odds" type="button" onclick="placeBetDraw(event)" style="width: 70px">DRAW</button></td>
-                                <td><button class="btn btn-dark btn-odds" type="button" onclick="placeBetAway(event)" style="width: 70px">${game.odds2}</button></td>`;
+                                <td><button class="btn btn-green btn-odds" type="button" onclick="placeBetHome(event)" style="width: 70px">${game.odds1}</button></td>
+                                <td><button class="btn btn-green btn-odds" type="button" onclick="placeBetDraw(event)" style="width: 75px">DRAW</button></td>
+                                <td><button class="btn btn-green btn-odds" type="button" onclick="placeBetAway(event)" style="width: 70px">${game.odds2}</button></td>`;
         padreFutbol.appendChild(acumulador);
     }
 }

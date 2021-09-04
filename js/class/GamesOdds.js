@@ -7,8 +7,4 @@ class GamesOdds {
         this.odds1 = odds1 || undefined;
         this.odds2 = odds2 || undefined;
     }
-    bet(amount, odds) {
-        let potentialWins = amount * odds;
-        return (potentialWins);
-    }
 }
