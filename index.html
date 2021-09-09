@@ -20,7 +20,7 @@
         <!-- NavBar-->
         <header class="row sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light w-100 shadow pl-5 pr-5 pt-3">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="./index.html">
                     <!-- <img src="" width="30" height="30" class="d-inline-block align-top" alt="Logo" loading="lazy"> -->
                     Sports<span>Betting</span>
                 </a>
@@ -55,56 +55,19 @@
             <!-- Sports-->
             <aside id="sports" class="col-md-2 d-flex justify-content-center mt-5" role="group">
                 <div class="list-group mw-100 position-fixed">
-                    <a class="list-group-item" href="#">FUTBOL</a>
-                    <a class="list-group-item" href="#">BASKETBALL</a>
-                    <a class="list-group-item" href="#">TENIS</a>
-                    <a class="list-group-item" href="#">RUGBY</a>
-                    <a class="list-group-item" href="#">PING-PONG</a>
-                    <a class="list-group-item" href="#">NFL</a>
-                    <a class="list-group-item" href="#">BASEBALL</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('futbol')">FUTBOL</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('basket')">BASKETBALL</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('tenis')">TENIS</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('rugby')">RUGBY</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('pingpong')">PING-PONG</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('nfl')">NFL</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('baseball')">BASEBALL</a>
                 </div>
             </aside>
             <div class="col-md-7">
                 <!-- GamesOdds-->
                 <section id="gamesOdds">
-                    <div>
-                        <h3>PARTIDOS DE FUTBOL</h3>
-                        <table id="futbolGames" class="table">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>HOME</th>
-                                <th>DRAW</th>
-                                <th>AWAY</th>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <h3>PARTIDOS DE BASKETBALL</h3>
-                        <table id="basketGames" class="table">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>HOME</th>
-                                <th>AWAY</th>
-                            </tr>
-                        </table>
-                    </div>
-                    <div>
-                        <h3>PARTIDOS DE TENIS</h3>
-                        <table id="tenisGames" class="table">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th>HOME</th>
-                                <th>AWAY</th>
-                            </tr>
-                        </table>
-                    </div>
-                    <div id="rugbyGames"></div>
-                    <div id="pingpongGames"></div>
-                    <div id="nflGames"></div>
-                    <div id="baseballGames"></div>
+                    <table id="games" class="table"></table>
                 </section>
 
                 <!-- Footer-->
@@ -114,11 +77,15 @@
             </div>
             <!-- My bets-->
             <aside id="myBets" class="col-md-3 mr-n2 mt-5">
-                <div class="card border-dark mb-3 position-fixed" style="width: 18rem;">
-                    <div class="card-header text-center">Mis Apuestas</div>
+                <div class="card border-dark mb-3" style="width: 18rem;">
+                    <div class="d-flex flex-row">
+                        <button id="betSlip" class="btn card-header text-center w-50" onclick="showBets()">Bet
+                            Slip</button>
+                        <button id="misApuestas" class="btn card-header text-center w-50" onclick="verApuestas()">My
+                            Bets</button>
+                    </div>
                     <div id="card-body" class="card-body text-dark">
-                        <p id="removeInfo" class="text-center">Para realizar una apuesta, clickea en las probabilidades
-                        </p>
+                        <p id="removeInfo" class="text-center">Para realizar una apuesta, clickea en las probabilidades</p>
                     </div>
                 </div>
             </aside>
@@ -138,11 +105,9 @@
 
     <!-- Javascript-->
     <script src="./js/functions/placeBet.js"></script>
+    <script src="./js/functions/apostar.js"></script>
     <script src="./js/class/GamesOdds.js"></script>
-    <script src="./js/functions/writeBasketGames.js"></script>
-    <script src="./js/functions/writeFutbolGames.js"></script>
-    <script src="./js/functions/writeTenisGames.js"></script>
-    <script src="./js/functions/checkAge.js"></script>
+    <script src="./js/functions/writeGames.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

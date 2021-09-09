@@ -9,12 +9,13 @@
 .mr-7{
     margin-right: 6rem !important;
 }
-.btn-green{
-    background-color: #51e5a5;
+.btn, .btn-green{
     color: #4a4e57;
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
 }
+.btn-green{
+    background-color: #51e5a5;}
 
 
 /* Declaraciones generales */
@@ -24,7 +25,7 @@ a{
 }
 body{
     font-family: 'Mulish', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
 }
 .table th, .table td{
     text-align: center;
@@ -52,7 +53,13 @@ a.navbar-brand > span{
 .dropdown-item{
     color: #4a4e57;
 }
-
+/*My bets*/
+ a:hover{
+    color: #51e5a5;
+}
+.card-body{
+    padding-top: .6rem !important;
+}
 /* Declaraciones responsive */
 @media only screen and (min-width: 992px)  {
     #navbarNavDropdown{
