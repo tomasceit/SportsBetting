@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,13 +80,14 @@
             <aside id="myBets" class="col-md-3 mr-n2 mt-5">
                 <div class="card border-dark mb-3" style="width: 18rem;">
                     <div class="d-flex flex-row">
-                        <button id="betSlip" class="btn card-header text-center w-50" onclick="showBets()">Bet
+                        <button id="betSlip" class="btn card-header text-center w-50" onclick="writeBets()">Bet
                             Slip</button>
                         <button id="misApuestas" class="btn card-header text-center w-50" onclick="verApuestas()">My
                             Bets</button>
                     </div>
                     <div id="card-body" class="card-body text-dark">
-                        <p id="removeInfo" class="text-center">Para realizar una apuesta, clickea en las probabilidades</p>
+                        <p id="removeInfo" class="text-center">Para realizar una apuesta clickea en las probabilidades
+                        </p>
                     </div>
                 </div>
             </aside>
@@ -104,10 +106,11 @@
         crossorigin="anonymous"></script>
 
     <!-- Javascript-->
+    <script src="./js/functions/removeBets.js"></script>
     <script src="./js/functions/placeBet.js"></script>
     <script src="./js/functions/apostar.js"></script>
-    <script src="./js/class/GamesOdds.js"></script>
     <script src="./js/functions/writeGames.js"></script>
+    <script src="./js/class/GamesOdds.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

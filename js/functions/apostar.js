@@ -1,7 +1,7 @@
 // Se fija si ya se ha realizado alguna apuesta para no pisarla al guardarla
 let index = (localStorage.getItem('index') !== null) ? Number(localStorage.getItem('index')) + 1 : 0;
 // Guarda la apuesta realizada en el localStorage
-const apostar = () => {
+const bet = () => {
     localStorage.setItem('index', index);
     let betAmount = Number(document.getElementById('betAmount').value);
     let betOddsTotal = Number(document.getElementById('totalOdd').innerHTML);

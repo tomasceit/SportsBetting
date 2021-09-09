@@ -3,13 +3,18 @@ let acumulador;
 // Escribe los partidos de futbol en el HTML
 const writeGames = (filtro = 'futbol') => {
     let padre = document.getElementById('games');
+    // Elige que deporte mostrar
+    let newGamesArray = gamesArray.filter(game => game.sport.toLowerCase() === filtro);
+    // En caso de que no haya partidos de ese deporte
+    if (newGamesArray.length === 0) {
+        padre.innerHTML = `<h4 class="mt-5 text-center">En este momento no tenemos disponibles partidos de este deporte</h4>`;
+        return;
+    }
+    // Escribe los partidos
     padre.innerHTML = `<thead><tr class="game"><th></th>
     <th></th>
     <th>HOME</th>
     <th>AWAY</th></tr></thead>`;
-    // Elige que deporte mostrar
-    let newGamesArray = gamesArray.filter(game => game.sport.toLowerCase() === filtro);
-    // Escribe los partidos
     newGamesArray.forEach(game => {
         acumulador = document.createElement("tr");
         acumulador.id = `game${game.gameId}`;
