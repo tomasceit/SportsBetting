@@ -1,18 +1,21 @@
 // Array donde se guardaran las apuestas a realizar
 let betGames = [];
 // Funcion que coloca las apuestas
-function placeBet(filtro, Id) {
+const placeBet = (filtro, Id) => {
+    let alreadyBet = betGames.find(game => game.gameId === Id.toString());
     // Encuentro el partido por el que se aposto
     const resultado = gamesArray.find(game => game.gameId === Id.toString());
-    // Compruebo qué boton se apretó
+    // Chequeo qué boton se apretó
     let betTeam = (filtro === 'home') ? "HomeWin | 1" : "AwayWin | 2";
     resultado.whoWins = betTeam;
+    // Me fijo si ya se habia apostado por este partido
+    if (alreadyBet !== undefined) { betGames = betGames.filter(game => game.gameId !== Id.toString()) }
     // Lo pongo en un array donde iran todas las apuestas a realizar
     betGames.push(resultado);
     writeBets();
 }
 // Funcion que calcula la apuesta
-function calculateBet(e) {
+const calculateBet = (e) => {
     let x = Number(document.getElementById('totalOdd').innerHTML);
     let potentialWins = x * Number(e.value);
     let odds = document.getElementById("pb1");
@@ -20,7 +23,7 @@ function calculateBet(e) {
     document.getElementById("pb1").innerHTML = `$${odds.value}`;
 }
 // Funcion que muestra las apuestas
-function writeBets() {
+const writeBets = () => {
     if (betGames.length === 0) {
         elem = document.getElementById("card-body");
         elem.innerHTML = `<p class="text-center">Para realizar una apuesta clickea en las probabilidades</p>`;
@@ -76,4 +79,8 @@ function writeBets() {
                     </div>
                     <hr />`;
     padre.appendChild(ryz);
+}
+// Con este metodo jQuery modifico el DOM
+const chooseCoin = (coin) => {
+    $('#navbarDropdownMenuLink').html(`${coin}`)
 }

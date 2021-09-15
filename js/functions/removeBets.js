@@ -1,11 +1,11 @@
 // Funcion que elimina todas las apuestas colocadas
-function removeAllBets() {
+const removeAllBets = () => {
     elem = document.getElementById("card-body");
-    elem.innerHTML = `<p class="text-center">Para realizar una apuesta, clickea en las probabilidades</p>`;
+    elem.innerHTML = `<p class="text-center">Para realizar una apuesta clickea en las probabilidades</p>`;
     betGames.length = 0;
 }
 // Funcion que elimina solo la apuesta seleccionada
-function removeThatBet(thatGameId, odds) {
+const removeThatBet = (thatGameId, odds) => {
     if (betGames.length === 1) {
         removeAllBets();
         return;
