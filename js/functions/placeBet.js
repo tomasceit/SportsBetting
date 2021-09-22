@@ -1,19 +1,28 @@
 // Array donde se guardaran las apuestas a realizar
 let betGames = [];
+
 // Funcion que coloca las apuestas
-const placeBet = (filtro, Id) => {
-    let alreadyBet = betGames.find(game => game.gameId === Id.toString());
+const placeBet = (filtro, realId) => {
+    let alreadyBet = betGames.find(game => game.id === realId);
     // Encuentro el partido por el que se aposto
-    const resultado = gamesArray.find(game => game.gameId === Id.toString());
+    const resultado = gamesArray.find(game => game.id === realId);
     // Chequeo qué boton se apretó
-    let betTeam = (filtro === 'home') ? "HomeWin | 1" : "AwayWin | 2";
+    let betTeam;
+    if (filtro === 'home') {
+        betTeam = "HomeWin | 1";
+    } else if (filtro === 'away') {
+        betTeam = "AwayWin | 2";
+    } else {
+        betTeam = "Draw | X"
+    }
     resultado.whoWins = betTeam;
     // Me fijo si ya se habia apostado por este partido
-    if (alreadyBet !== undefined) { betGames = betGames.filter(game => game.gameId !== Id.toString()) }
+    if (alreadyBet !== undefined) { betGames = betGames.filter(game => game.id !== realId) }
     // Lo pongo en un array donde iran todas las apuestas a realizar
     betGames.push(resultado);
     writeBets();
 }
+
 // Funcion que calcula la apuesta
 const calculateBet = (e) => {
     let x = Number(document.getElementById('totalOdd').innerHTML);
@@ -22,6 +31,7 @@ const calculateBet = (e) => {
     odds.value = potentialWins.toFixed(2);
     document.getElementById("pb1").innerHTML = `$${odds.value}`;
 }
+
 // Funcion que muestra las apuestas
 const writeBets = () => {
     if (betGames.length === 0) {
@@ -37,24 +47,34 @@ const writeBets = () => {
     let totalOdds = 1;
     // Escribo todos los partidos que se encuentren en este array
     betGames.forEach(game => {
+        let gameodds1 = getOdds(game, 'home')
+        let gameodds2 = getOdds(game, 'away')
+        let gamedraw = getOdds(game, 'draw')
         // Coloco la apuesta en la card
-        const odds = (game.whoWins === "HomeWin | 1") ? game.odds1 : game.odds2;
+        let odds;
+        if (game.whoWins === "HomeWin | 1") {
+            odds = gameodds1;
+        } else if (game.whoWins === "AwayWin | 2") {
+            odds = gameodds2;
+        } else {
+            odds = gamedraw;
+        }
         totalOdds = totalOdds * odds;
         ryz = document.createElement("div");
-        ryz.id = `game${game.gameId}Bet`
+        ryz.id = `game${game.id}Bet`
         ryz.innerHTML = `<div class="d-flex flex-column">
                                 <div class="d-flex justify-content-between">
                                     <h5>${game.whoWins}</h5>
-                                    <button type="button" class="close pb-2" onclick="removeThatBet(${game.gameId}, ${odds})" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close pb-2" onclick="removeThatBet('${game.id}', ${odds.toFixed(2)})" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="d-flex mb-2 justify-content-between align-items-center">
-                                    <span><div class="d-flex flex-column text-center">
-                                        <span>${game.team1} vs</span>
-                                        <span>${game.team2}</span>
+                                    <span><div class="d-flex flex-column">
+                                        <span>${game.home_team} vs</span>
+                                        <span>${game.away_team}</span>
                                     </div></span>
-                                    <span>${odds}</span>
+                                    <span>${odds.toFixed(2)}</span>
                                 </div>
                          </div><hr />`;
         padre.appendChild(ryz);
@@ -80,6 +100,7 @@ const writeBets = () => {
                     <hr />`;
     padre.appendChild(ryz);
 }
+
 // Con este metodo jQuery modifico el DOM
 const chooseCoin = (coin) => {
     $('#navbarDropdownMenuLink').html(`${coin}`)

@@ -1,5 +1,6 @@
 // Se fija si ya se ha realizado alguna apuesta para no pisarla al guardarla
 let index = (localStorage.getItem('index') !== null) ? Number(localStorage.getItem('index')) + 1 : 0;
+
 // Guarda la apuesta realizada en el localStorage
 const bet = () => {
     localStorage.setItem('index', index);
@@ -11,10 +12,10 @@ const bet = () => {
     localStorage.setItem(betMade.betId, JSON.stringify(betMade));
     removeAllBets();
     index++;
-    verApuestas();
+    showBets();
 }
 
-const verApuestas = () => {
+const showBets = () => {
     const betsMade = [];
     for (let l = 0; l < (localStorage.length - 1); l++) {
         betsMade.push(JSON.parse(localStorage.getItem(l)))

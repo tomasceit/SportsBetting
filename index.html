@@ -33,9 +33,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                PESO ARGENTINO - ARS
-                            </a>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PESO ARGENTINO - ARS</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#" onclick="chooseCoin('PESO ARGENTINO - ARS')">PESO ARGENTINO - ARS</a>
                                 <a class="dropdown-item" href="#" onclick="chooseCoin('US DOLLAR - USD')">US DOLLAR - USD</a>
@@ -53,17 +51,17 @@
             </nav>
         </header>
         
-        <div class="row mt-4">
+        <div class="row m-4">
             <!-- Sports-->
             <aside id="sports" class="col-md-2 d-flex justify-content-center mt-5" role="group">
                 <div class="list-group mw-100 position-fixed">
-                    <a class="list-group-item" href="#" onclick="writeGames('futbol')">FUTBOL</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('basket')">BASKETBALL</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('tenis')">TENIS</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('rugby')">RUGBY</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('pingpong')">PING-PONG</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('nfl')">NFL</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('baseball')">BASEBALL</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_argentina_primera_division')">Primera Argentina</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_uefa_champs_league')">UEFA Champions</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_germany_bundesliga')">German Bundesliga</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_epl')">England EPL</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_spain_la_liga')">La Liga - Spain</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_france_ligue_one')">Ligue 1 - France</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_italy_serie_a')">Serie A - Italy</a>
                 </div>
             </aside>
             <div class="col-md-7">
@@ -83,7 +81,7 @@
                     <div class="d-flex flex-row">
                         <button id="betSlip" class="btn card-header text-center w-50" onclick="writeBets()">Bet
                             Slip</button>
-                        <button id="misApuestas" class="btn card-header text-center w-50" onclick="verApuestas()">My
+                        <button id="misApuestas" class="btn card-header text-center w-50" onclick="showBets()">My
                             Bets</button>
                     </div>
                     <div id="card-body" class="card-body text-dark">
