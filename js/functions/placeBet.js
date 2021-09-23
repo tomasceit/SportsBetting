@@ -3,7 +3,9 @@ let betGames = [];
 
 // Funcion que coloca las apuestas
 const placeBet = (filtro, realId) => {
+    // Me fijo si ya se habia apostado por este partido
     let alreadyBet = betGames.find(game => game.id === realId);
+    if (alreadyBet !== undefined) { betGames = betGames.filter(game => game.id !== realId) }
     // Encuentro el partido por el que se aposto
     const resultado = gamesArray.find(game => game.id === realId);
     // Chequeo qué boton se apretó
@@ -16,24 +18,13 @@ const placeBet = (filtro, realId) => {
         betTeam = "Draw | X"
     }
     resultado.whoWins = betTeam;
-    // Me fijo si ya se habia apostado por este partido
-    if (alreadyBet !== undefined) { betGames = betGames.filter(game => game.id !== realId) }
     // Lo pongo en un array donde iran todas las apuestas a realizar
     betGames.push(resultado);
-    writeBets();
-}
-
-// Funcion que calcula la apuesta
-const calculateBet = (e) => {
-    let x = Number(document.getElementById('totalOdd').innerHTML);
-    let potentialWins = x * Number(e.value);
-    let odds = document.getElementById("pb1");
-    odds.value = potentialWins.toFixed(2);
-    document.getElementById("pb1").innerHTML = `$${odds.value}`;
+    betSlip();
 }
 
 // Funcion que muestra las apuestas
-const writeBets = () => {
+const betSlip = () => {
     if (betGames.length === 0) {
         elem = document.getElementById("card-body");
         elem.innerHTML = `<p class="text-center">Para realizar una apuesta clickea en las probabilidades</p>`;
@@ -47,9 +38,10 @@ const writeBets = () => {
     let totalOdds = 1;
     // Escribo todos los partidos que se encuentren en este array
     betGames.forEach(game => {
+        // Consigo las odds de la API
         let gameodds1 = getOdds(game, 'home')
-        let gameodds2 = getOdds(game, 'away')
         let gamedraw = getOdds(game, 'draw')
+        let gameodds2 = getOdds(game, 'away')
         // Coloco la apuesta en la card
         let odds;
         if (game.whoWins === "HomeWin | 1") {
@@ -99,6 +91,15 @@ const writeBets = () => {
                     </div>
                     <hr />`;
     padre.appendChild(ryz);
+}
+
+// Funcion que calcula la apuesta
+const calculateBet = (e) => {
+    let x = Number(document.getElementById('totalOdd').innerHTML);
+    let potentialWins = x * Number(e.value);
+    let odds = document.getElementById("pb1");
+    odds.value = potentialWins.toFixed(2);
+    document.getElementById("pb1").innerHTML = `$${odds.value}`;
 }
 
 // Con este metodo jQuery modifico el DOM

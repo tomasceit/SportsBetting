@@ -20,8 +20,8 @@ const showBets = () => {
     for (let l = 0; l < (localStorage.length - 1); l++) {
         betsMade.push(JSON.parse(localStorage.getItem(l)))
     }
-    let ahre = document.getElementById('misApuestas')
-    ahre.innerHTML = `My Bets (${betsMade.length})`
+    let variable = document.getElementById('misApuestas')
+    variable.innerHTML = `My Bets (${betsMade.length})`
 
     padre = document.getElementById('card-body');
     if (betsMade.length === 0) {

@@ -11,11 +11,12 @@ const writeGames = (filtro) => {
         return;
     }
 
-    // En caso de que no haya partidos de ese deporte
+    // En caso de que no haya partidos de esa competicion
     if (newGamesArray.length === 0) {
-        padre.innerHTML = `<h4 class="mt-5 text-center">En este momento no tenemos disponibles partidos de este deporte</h4>`;
+        padre.innerHTML = `<h4 class="mt-5 text-center">En este momento no tenemos disponibles partidos de esta competicion</h4>`;
         return;
     }
+
     // Escribe los partidos
     padre.innerHTML = `<thead><tr class="game"><th></th>
     <th></th>
@@ -29,8 +30,8 @@ const writeGames = (filtro) => {
         let gameodds2 = getOdds(game, 'away')
         let gamedraw = getOdds(game, 'draw')
         acumulador = document.createElement("tr");
-        acumulador.id = `game${game.id}`;
-        acumulador.className = `${filtro}Game`;
+        acumulador.id = `game_${game.id}`;
+        acumulador.className = `${filtro}_game`;
         acumulador.innerHTML = `<td>
                                     <div class="d-flex flex-column text-center">
                                         <span>${game_date}</span>
@@ -48,4 +49,22 @@ const writeGames = (filtro) => {
                                 <td><button class="btn btn-green btn-odds" type="button" onclick="placeBet('away', '${(game.id).toString()}')" style="width: 70px">${gameodds2.toFixed(2)}</button></td>`;
         padre.appendChild(acumulador);
     });
+}
+
+// Obtener las odds
+const getOdds = (partido, wich) => {
+    const hometeam = partido.home_team;
+    const awayteam = partido.away_team;
+    let variable = (partido.bookmakers).find(game => game.key === 'betfair' || 'onexbet');
+    variable = (variable.markets).find(game => game.key === 'h2h');
+    if (wich === 'home') {
+        variable = (variable.outcomes).find(game => game.name === hometeam);
+        return variable.price;
+    } else if (wich === 'away') {
+        variable = (variable.outcomes).find(game => game.name === awayteam);
+        return variable.price;
+    } else {
+        variable = (variable.outcomes).find(game => game.name === 'Draw');
+        return variable.price;
+    }
 }

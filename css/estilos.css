@@ -60,6 +60,13 @@ a.navbar-brand > span{
 .card-body{
     padding-top: .6rem !important;
 }
+#betSlip{
+    border-bottom: 1px solid #4a4e57;
+    border-right: 1px solid #4a4e57;
+}
+#misApuestas{
+    border-bottom: 1px solid #4a4e57;
+}
 /* Declaraciones responsive */
 @media only screen and (min-width: 992px)  {
     #navbarNavDropdown{
