@@ -3,31 +3,37 @@ let index = (localStorage.getItem('index') !== null) ? Number(localStorage.getIt
 
 // Guarda la apuesta realizada en el localStorage
 const bet = () => {
-    localStorage.setItem('index', index);
-    let betAmount = Number(document.getElementById('betAmount').value);
-    let betOddsTotal = Number(document.getElementById('totalOdd').innerHTML);
-    let potentialWins = Number(document.getElementById('pb1').value);
-    let coin = (document.getElementById("navbarDropdownMenuLink")).innerHTML;
-    let betMade = { betId: index, coinUsed: coin, betAmount: betAmount, betOddsTotal: betOddsTotal, potentialWins: potentialWins };
-    localStorage.setItem(betMade.betId, JSON.stringify(betMade));
-    removeAllBets();
+    localStorage.setItem('index', index)
+    let betAmount = Number(document.getElementById('betAmount').value)
+    let betOddsTotal = Number(document.getElementById('totalOdd').innerHTML)
+    let potentialWins = Number(document.getElementById('pb1').value)
+    let coin = (document.getElementById("navbarDropdownMenuLink")).innerHTML
+    let betMade = { betId: index, coinUsed: coin, betAmount: betAmount, betOddsTotal: betOddsTotal, potentialWins: potentialWins }
+    let item = localStorage.getItem("betsMade")
+    let almacenados = []
+    if (item) {
+        almacenados = JSON.parse(item)
+    }
+    almacenados.push(betMade)
+    localStorage.setItem("betsMade", JSON.stringify(almacenados))
+    removeAllBets()
     index++;
-    showBets();
+    showBets()
 }
 
 const showBets = () => {
-    const betsMade = [];
-    for (let l = 0; l < (localStorage.length - 1); l++) {
-        betsMade.push(JSON.parse(localStorage.getItem(l)))
+    padre = document.getElementById('card-body')
+    
+    let item = localStorage.getItem("betsMade")
+    if (!item) {
+        padre.innerHTML = `<h5 class="text-center mt-2">Todavia no realizaste apuestas</h5><hr />`;
+        return
     }
+    let betsMade = JSON.parse(item)
+
     let variable = document.getElementById('misApuestas')
     variable.innerHTML = `My Bets (${betsMade.length})`
 
-    padre = document.getElementById('card-body');
-    if (betsMade.length === 0) {
-        padre.innerHTML = `<h5 class="text-center mt-2">Todavia no realizaste apuestas</h5><hr />`;
-        return;
-    }
     padre.innerHTML = `<h5>Apuestas realizadas</h5><hr />`;
     betsMade.forEach(element => {
         acumulador = document.createElement('div')
@@ -40,6 +46,6 @@ const showBets = () => {
         <p>Moneda: ${element.coinUsed}</p>
         <hr />
         `;
-        padre.appendChild(acumulador);
+        padre.appendChild(acumulador)
     });
 }

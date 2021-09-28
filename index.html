@@ -22,7 +22,6 @@
         <header class="row sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light w-100 shadow pl-5 pr-5 pt-3">
                 <a class="navbar-brand" href="./index.html">
-                    <!-- <img src="" width="30" height="30" class="d-inline-block align-top" alt="Logo" loading="lazy"> -->
                     Sports<span>Betting</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -33,34 +32,96 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PESO ARGENTINO - ARS</a>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PESO ARGENTINO -
+                                ARS</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#" onclick="chooseCoin('PESO ARGENTINO - ARS')">PESO ARGENTINO - ARS</a>
-                                <a class="dropdown-item" href="#" onclick="chooseCoin('US DOLLAR - USD')">US DOLLAR - USD</a>
-                                <a class="dropdown-item" href="#" onclick="chooseCoin('BITCOIN - BTC')">BITCOIN - BTC</a>
+                                <a class="dropdown-item" href="#" onclick="chooseCoin('PESO ARGENTINO - ARS')">PESO
+                                    ARGENTINO - ARS</a>
+                                <a class="dropdown-item" href="#" onclick="chooseCoin('US DOLLAR - USD')">US DOLLAR -
+                                    USD</a>
+                                <a class="dropdown-item" href="#" onclick="chooseCoin('BITCOIN - BTC')">BITCOIN -
+                                    BTC</a>
                             </div>
                         </li>
-                        <li class="nav-item active">
-                            <button type="button" class="btn btn-green ml-3 mr-3 mb-2">Log In</button>
-                        </li>
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-green">Sign Up</button>
+                        <li id="userlogin" class="nav-item active">
+                            <a href="#signInModal" data-toggle="modal"> <button type="button"
+                                    class="btn btn-green ml-3 mr-3">Ingresa</button></a>
+                            <a href="#signUpModal" data-toggle="modal"><button type="button"
+                                    class="btn btn-green">Registrate</button></a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        
+
+        <!-- Modal de ingreso de usuario-->
+        <div id="signInModal" class="modal fade">
+            <div class="modal-dialog modal-login">
+                <div class="modal-content" style="padding: 1.1rem;">
+                    <form>
+                        <h2 class="text-center mb-3">Log in</h2>
+                        <div class="form-group">
+                            <input type="text" id='txtCorreo' class="form-control" placeholder="Usuario"
+                                required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id='txtContraseña' class="form-control" placeholder="Contraseña"
+                                required="required">
+                        </div>
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="button" class="btn btn-green" onclick="logIn()">Ingresa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal de registro de usuario-->
+        <div id="signUpModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content signup-form" style="padding: 1.1rem;">
+                    <form>
+                        <h2>Registrate</h2>
+                        <p>Llena este formulario y crea tu cuenta!</p>
+                        <hr>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="userName" placeholder="Usuario"
+                                required="required">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col"><input type="text" class="form-control" id="first_name"
+                                        placeholder="Nombres" required="required"></div>
+                                <div class="col"><input type="text" class="form-control" id="last_name"
+                                        placeholder="Apellido" required="required"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña"
+                                required="required">
+                        </div>
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="button" class="btn btn-green btn-lg" onclick="signUp()">Registrate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="row m-4">
             <!-- Sports-->
             <aside id="sports" class="col-md-2 d-flex justify-content-center mt-5" role="group">
                 <div class="list-group mw-100 position-fixed">
-                    <a class="list-group-item" href="#" onclick="writeGames('soccer_argentina_primera_division')">Primera Argentina</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('soccer_uefa_champs_league')">UEFA Champions</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('soccer_germany_bundesliga')">German Bundesliga</a>
+                    <a class="list-group-item" href="#"
+                        onclick="writeGames('soccer_argentina_primera_division')">Primera Argentina</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_uefa_champs_league')">UEFA
+                        Champions</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_germany_bundesliga')">German
+                        Bundesliga</a>
                     <a class="list-group-item" href="#" onclick="writeGames('soccer_epl')">Premier League</a>
                     <a class="list-group-item" href="#" onclick="writeGames('soccer_spain_la_liga')">La Liga - Spain</a>
-                    <a class="list-group-item" href="#" onclick="writeGames('soccer_france_ligue_one')">Ligue 1 - France</a>
+                    <a class="list-group-item" href="#" onclick="writeGames('soccer_france_ligue_one')">Ligue 1 -
+                        France</a>
                     <a class="list-group-item" href="#" onclick="writeGames('soccer_italy_serie_a')">Serie A - Italy</a>
                 </div>
             </aside>
@@ -81,11 +142,12 @@
                     <div class="d-flex flex-row">
                         <button id="betSlip" class="btn card-header text-center w-50" onclick="betSlip()">Bet
                             Slip</button>
-                        <button id="misApuestas" class="btn card-header text-center w-50" onclick="showBets()">My
-                            Bets</button>
+                        <button id="misApuestas" class="btn card-header text-center w-50" onclick="showBets()">Mis
+                            Apuestas</button>
                     </div>
                     <div id="card-body" class="card-body text-dark">
-                        <p id="removeInfo" class="text-center">Para realizar una apuesta clickea en las probabilidades
+                        <p id="removeInfo" class="text-center mt-3">Para realizar una apuesta clickea en las
+                            probabilidades
                         </p>
                     </div>
                 </div>
@@ -93,8 +155,9 @@
         </div>
     </div>
 
-
-
+    <!-- jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -106,12 +169,13 @@
 
     <!-- Javascript-->
     <script src="./js/functions/removeBets.js"></script>
+    <script src="./js/functions/user.js"></script>
     <script src="./js/functions/placeBet.js"></script>
     <script src="./js/functions/showBets.js"></script>
     <script src="./js/functions/writeGames.js"></script>
     <script src="./js/class/GamesOdds.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./js/class/User.js"></script>
+    <script src="./js/main.js" defer></script>
 </body>
 
 </html>

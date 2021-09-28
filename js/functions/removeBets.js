@@ -1,7 +1,7 @@
 // Funcion que elimina todas las apuestas colocadas
 const removeAllBets = () => {
     elem = document.getElementById("card-body");
-    elem.innerHTML = `<p class="text-center">Para realizar una apuesta clickea en las probabilidades</p>`;
+    elem.innerHTML = `<p class="text-center mt-3">Para realizar una apuesta clickea en las probabilidades</p>`;
     betGames.length = 0;
 }
 

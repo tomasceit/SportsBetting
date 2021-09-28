@@ -6,7 +6,6 @@ const placeBet = (filtro, realId) => {
     // Me fijo si ya se habia apostado por este partido
     let alreadyBet = betGames.find(game => game.id === realId);
     if (alreadyBet !== undefined) { betGames = betGames.filter(game => game.id !== realId) }
-    // Encuentro el partido por el que se aposto
     const resultado = gamesArray.find(game => game.id === realId);
     // Chequeo qué boton se apretó
     let betTeam;
@@ -18,7 +17,6 @@ const placeBet = (filtro, realId) => {
         betTeam = "Draw | X"
     }
     resultado.whoWins = betTeam;
-    // Lo pongo en un array donde iran todas las apuestas a realizar
     betGames.push(resultado);
     betSlip();
 }
@@ -27,7 +25,7 @@ const placeBet = (filtro, realId) => {
 const betSlip = () => {
     if (betGames.length === 0) {
         elem = document.getElementById("card-body");
-        elem.innerHTML = `<p class="text-center">Para realizar una apuesta clickea en las probabilidades</p>`;
+        elem.innerHTML = `<p class="text-center mt-3">Para realizar una apuesta clickea en las probabilidades</p>`;
         return;
     }
     // Creo el 'remove all'
@@ -36,9 +34,7 @@ const betSlip = () => {
                             <a href="#" onclick="removeAllBets()">Remove all bets</a>
                         </div><hr />`;
     let totalOdds = 1;
-    // Escribo todos los partidos que se encuentren en este array
     betGames.forEach(game => {
-        // Consigo las odds de la API
         let gameodds1 = getOdds(game, 'home')
         let gamedraw = getOdds(game, 'draw')
         let gameodds2 = getOdds(game, 'away')

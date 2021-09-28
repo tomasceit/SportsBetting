@@ -9,7 +9,7 @@
 .mr-7{
     margin-right: 6rem !important;
 }
-.btn, .btn-green{
+.btn, .btn-green, a > .btn-green{
     color: #4a4e57;
     font-family: 'Mulish', sans-serif;
     font-weight: 700;
@@ -25,7 +25,7 @@ a{
 }
 body{
     font-family: 'Mulish', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
 }
 .table th, .table td{
     text-align: center;
@@ -53,6 +53,9 @@ a.navbar-brand > span{
 .dropdown-item{
     color: #4a4e57;
 }
+button > a:hover{
+    color: black;
+}
 /*My bets*/
  a:hover{
     color: #51e5a5;
@@ -67,6 +70,12 @@ a.navbar-brand > span{
 #misApuestas{
     border-bottom: 1px solid #4a4e57;
 }
+.list-group-item{
+    font-weight: 600;
+}
+h5{
+    font-weight: 600;
+}
 /* Declaraciones responsive */
 @media only screen and (min-width: 992px)  {
     #navbarNavDropdown{
@@ -78,4 +87,61 @@ a.navbar-brand > span{
         margin-bottom: 0 !important;
         margin-left: 1rem;
     }
+}
+
+/* Modal Login */
+.modal-login {
+	width: 320px;
+}
+.modal-login .modal-content {
+	border-radius: 1px;
+	border: none;
+}
+.modal-login .modal-header {
+	position: relative;
+	justify-content: center;
+	background: #f2f2f2;
+}
+.modal-login .modal-body {
+	padding: 30px;
+}
+.modal-login .modal-footer {
+	background: #f2f2f2;
+}
+.modal-login h4 {
+	text-align: center;
+	font-size: 26px;
+}
+.modal-login label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.modal-login .form-control, .modal-login .btn {
+	min-height: 38px;
+	border-radius: 2px; 
+}
+.modal-login .hint-text {
+	text-align: center;
+}
+.modal-login .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+.modal-login .checkbox-inline {
+	margin-top: 12px;
+}
+.modal-login input[type="checkbox"] {
+	position: relative;
+	top: 1px;
+}
+.modal-login .btn {
+	width: 100px;
+}
+.modal-login .hint-text a {
+	color: #999;
+}
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
 }
