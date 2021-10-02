@@ -15,16 +15,22 @@ const signUp = () => {
             almacenados.push(newUser);
             let almacenados_string = JSON.stringify(almacenados);
             localStorage.setItem("userList", almacenados_string);
+            closeModal('#signUpModal', '#confirmationModal')
         } else {
-            console.error('Ya existe un usuario con ese nombre')
+            closeModal('#signUpModal', '#errorModal')
         }
     } else {
         let almacenados = [];
         almacenados.push(newUser);
         let almacenados_string = JSON.stringify(almacenados);
         localStorage.setItem("userList", almacenados_string);
+        closeModal('#signUpModal', '#confirmationModal')
     }
-    $('#signUpModal').modal('hide')
+}
+
+function closeModal(modalClose, modalOpen) {
+    $(modalClose).modal('hide');
+    modalOpen !== undefined && $(modalOpen).modal('show');
 }
 
 const logIn = () => {
@@ -42,5 +48,4 @@ const logIn = () => {
         ? signForm.innerHTML = (`<button type="button" class="btn btn-green ml-3 mr-3"><a>Bienvenido, ${found.name} ${found.lastName}!</a></button>`)
         : console.error(`El usuario o contraseña son incorrectos`);
     $('#signInModal').modal('hide')
-
 }
